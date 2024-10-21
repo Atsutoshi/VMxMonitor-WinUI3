@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="VMxMonitor.views.pages.HistoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor.views.pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="400" d:DesignWidth="800"
+    Loaded="OnLoad"
+    Background="White">
+	<Grid Margin="0,40">
+		<Grid Width="600" HorizontalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<ListView x:Name="wList" Margin="0,0,0,5" SelectionChanged="OnSelectItem" FontSize="18">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="100"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Image Source="{Binding Icon}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="64" Height="64" Margin="0,8" Grid.Column="0"/>
+							<TextBlock Text="{Binding Title}" VerticalAlignment="Center" FontSize="18" Margin="10,0,0,0" Grid.Column="1"/>
+						</Grid>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<Button x:Name="wResultButton" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,5,0,0" Height="44" Width="144" Click="OnResultButton" Content="{Binding buttonResult, Source={StaticResource resx}}" FontSize="18" />
+		</Grid>
+		<Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="44" Width="96" Content="{Binding buttonClose, Source={StaticResource resx}}" FontSize="18" Margin="40,10,0,0" Grid.Row="1" Click="OnCloseButton" />
+	</Grid>
+</UserControl>

@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="VMxMonitor.pages.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor.pages"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d">
+
+	<Grid Margin="0,40">
+		<Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="120"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Image HorizontalAlignment="Center" Height="160" Margin="0,0,0,8" VerticalAlignment="Center" Width="160" Source="ms-appx:///Assets/monitorIcon.png" Grid.ColumnSpan="2"/>
+			<Image HorizontalAlignment="Center" Height="160" Margin="0,0,0,8" VerticalAlignment="Center" Width="160" Source="ms-appx:///Assets/inquiryIcon.png" Grid.ColumnSpan="2" Grid.Column="3"/>
+			<TextBlock Text="{Binding menuMonitor, Source={StaticResource resx}}" HorizontalAlignment="Center" Margin="0,8" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="18"/>
+			<TextBlock Text="{Binding menuInquiry, Source={StaticResource resx}}" HorizontalAlignment="Center" Margin="0,8" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="18"/>
+			<Button Content="{Binding buttonStartMonitor, Source={StaticResource resx}}" HorizontalAlignment="Center" Margin="0,8,8,0" VerticalAlignment="Center" Width="120" FontSize="18" Height="40" Grid.Row="2" Click="onStartMonitorButton"/>
+			<Button Content="{Binding buttonListMonitor, Source={StaticResource resx}}" HorizontalAlignment="Center" Margin="8,8,0,0" VerticalAlignment="Center" Width="120" FontSize="18" Height="40" Grid.Row="2" Grid.Column="1" Click="onListMonitorButton"/>
+			<Button Content="{Binding buttonStartInquiry, Source={StaticResource resx}}" HorizontalAlignment="Center" Margin="0,8,8,0" VerticalAlignment="Center" Width="120" FontSize="18" Height="40" Grid.Row="2" Grid.Column="3" Click="onStartInquiryButton"/>
+			<Button Content="{Binding buttonListInquiry, Source={StaticResource resx}}" HorizontalAlignment="Center" Margin="8,8,0,0" VerticalAlignment="Center" Width="120" FontSize="18" Height="40" Grid.Row="2" Grid.Column="4" Click="onListInquiryButton"/>
+		</Grid>
+		<Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" Width="100" Margin="40,0,0,0" Content="{Binding buttonCancel, Source={StaticResource resx}}" FontSize="18" Click="onCancelButton"/>
+	</Grid>
+</UserControl>

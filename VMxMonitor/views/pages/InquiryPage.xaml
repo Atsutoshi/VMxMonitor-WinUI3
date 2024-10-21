@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="VMxMonitor.views.pages.InquiryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor.views.pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="800"
+    Loaded="OnLoad"
+    Background="White">
+	<Grid Margin="0,40">
+		<Grid HorizontalAlignment="Center" Width="800">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<TextBlock x:Name="wPromptText" TextWrapping="Wrap" FontSize="14" Text="{Binding inquiryPrompt1, Source={StaticResource resx}}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,12"/>
+			<Border Grid.Row="1" BorderThickness="1,1,1,0" BorderBrush="DarkSlateGray" VerticalAlignment="Top">
+				<ScrollViewer x:Name="wScrollViewer" VerticalScrollBarVisibility="Auto">
+					<StackPanel x:Name="wPanel" VerticalAlignment="Top"/>
+				</ScrollViewer>
+			</Border>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Margin="0,12,0,0">
+				<Button x:Name="wPreviousButton" Content="{Binding buttonPrevious, Source={StaticResource resx}}" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="140" Height="40" Margin="0" Click="OnPreviousButton" />
+				<TextBlock x:Name="wPageText" FontSize="12" Width="80" VerticalAlignment="Bottom" TextAlignment="Center"/>
+				<Button x:Name="wNextButton" Content="{Binding buttonNext, Source={StaticResource resx}}" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="140" Height="40" Margin="0" Click="OnNextButton" />
+			</StackPanel>
+		</Grid>
+		<Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40,0,0,0" FontSize="18" Content="{Binding buttonCancel, Source={StaticResource resx}}" Width="100" Height="40" Click="OnCancelButton" />
+	</Grid>
+</UserControl>

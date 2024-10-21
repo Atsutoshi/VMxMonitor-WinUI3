@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="resx" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="buttonCancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="buttonClose" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="buttonDelete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="buttonEnlarge" xml:space="preserve">
+    <value>拡大</value>
+  </data>
+  <data name="buttonEnter" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="buttonExport" xml:space="preserve">
+    <value>データ出力</value>
+  </data>
+  <data name="buttonFinish" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="buttonListAll" xml:space="preserve">
+    <value>全表示</value>
+  </data>
+  <data name="buttonListInquiry" xml:space="preserve">
+    <value>問診履歴</value>
+  </data>
+  <data name="buttonListMonitor" xml:space="preserve">
+    <value>測定履歴</value>
+  </data>
+  <data name="buttonLogout" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
+  <data name="buttonModfy" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="buttonNewCommunity" xml:space="preserve">
+    <value>新規グループ登録</value>
+  </data>
+  <data name="buttonNewFolder" xml:space="preserve">
+    <value>新規フォルダ作成</value>
+  </data>
+  <data name="buttonNewUser" xml:space="preserve">
+    <value>新規ユーザー登録</value>
+  </data>
+  <data name="buttonNext" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="buttonNo" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="buttonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="buttonPrevious" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="buttonPrint" xml:space="preserve">
+    <value>印刷</value>
+  </data>
+  <data name="buttonQuit" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="buttonReconfirm" xml:space="preserve">
+    <value>再確認</value>
+  </data>
+  <data name="buttonReduce" xml:space="preserve">
+    <value>縮小</value>
+  </data>
+  <data name="buttonRegister" xml:space="preserve">
+    <value>新規登録</value>
+  </data>
+  <data name="buttonResult" xml:space="preserve">
+    <value>測定結果</value>
+  </data>
+  <data name="buttonSearch" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="buttonSelectFolder" xml:space="preserve">
+    <value>フォルダ選択</value>
+  </data>
+  <data name="buttonStartInquiry" xml:space="preserve">
+    <value>問診開始</value>
+  </data>
+  <data name="buttonStartMonitor" xml:space="preserve">
+    <value>測定開始</value>
+  </data>
+  <data name="buttonStopMonitor" xml:space="preserve">
+    <value>測定中止</value>
+  </data>
+  <data name="buttonUpdate" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="buttonYes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="errorAnalysisFileFailed" xml:space="preserve">
+    <value>解析結果ファイルの読み込みに失敗しました。</value>
+  </data>
+  <data name="errorAnalyzerAnalyzing" xml:space="preserve">
+    <value>解析エンジンが解析処理を完了できませんでした。</value>
+  </data>
+  <data name="errorAnalyzerAuthentication" xml:space="preserve">
+    <value>認証キーが挿入されていないか、正しいキーではないため、解析を実行できません。</value>
+  </data>
+  <data name="errorAnalyzerExecution" xml:space="preserve">
+    <value>解析エンジンを正しく起動できませんでした。</value>
+  </data>
+  <data name="errorAnalyzerNoData" xml:space="preserve">
+    <value>解析に必要なデータ量を測定できませんでした。</value>
+  </data>
+  <data name="errorAnalyzerReading" xml:space="preserve">
+    <value>解析エンジンが測定結果ファイルを読み込めませんでした。</value>
+  </data>
+  <data name="errorAnalyzerWriteing" xml:space="preserve">
+    <value>解析エンジンが解析結果ファイルを保存できませんでした。</value>
+  </data>
+  <data name="errorApplicationAuthentication" xml:space="preserve">
+    <value>認証キーが挿入されていないか、正しいキーではありません。認証キーを確認してください。</value>
+  </data>
+  <data name="errorBirthdayNotSelected" xml:space="preserve">
+    <value>生年月日を選択してください。</value>
+  </data>
+  <data name="errorCommunityNameDuplicated" xml:space="preserve">
+    <value>グループ"{0}"は、すでに登録されています。</value>
+  </data>
+  <data name="errorCommunityNameEmpty" xml:space="preserve">
+    <value>グループ名を入力してください。</value>
+  </data>
+  <data name="errorDevice" xml:space="preserve">
+    <value>測定器でエラーが発生しました。</value>
+  </data>
+  <data name="errorPasswordEmpty" xml:space="preserve">
+    <value>パスワードを入力してください。</value>
+  </data>
+  <data name="errorPasswordInvalid" xml:space="preserve">
+    <value>パスワードが違います。</value>
+  </data>
+  <data name="errorPortOpenFailed" xml:space="preserve">
+    <value>測定器との通信を開始できません。</value>
+  </data>
+  <data name="errorPortReceiveFailed" xml:space="preserve">
+    <value>測定器からデータを受信できません。</value>
+  </data>
+  <data name="errorPortSendFailed" xml:space="preserve">
+    <value>測定器にデータを送信できません。</value>
+  </data>
+  <data name="errorSexNotSelected" xml:space="preserve">
+    <value>性別を選択してください。</value>
+  </data>
+  <data name="errorUserNameDuplicated" xml:space="preserve">
+    <value>ユーザー"{0}"は、すでに登録されています。</value>
+  </data>
+  <data name="errorUserNameEmpty" xml:space="preserve">
+    <value>ユーザー名を入力してください。</value>
+  </data>
+  <data name="inquiryAnswerChoice0" xml:space="preserve">
+    <value>全くない</value>
+  </data>
+  <data name="inquiryAnswerChoice1" xml:space="preserve">
+    <value>少しある</value>
+  </data>
+  <data name="inquiryAnswerChoice2" xml:space="preserve">
+    <value>まあまあある</value>
+  </data>
+  <data name="inquiryAnswerChoice3" xml:space="preserve">
+    <value>かなりある</value>
+  </data>
+  <data name="inquiryAnswerChoice4" xml:space="preserve">
+    <value>非常にある</value>
+  </data>
+  <data name="inquiryAnswerDisease1" xml:space="preserve">
+    <value>悪性腫瘍（がん）</value>
+  </data>
+  <data name="inquiryAnswerDisease2" xml:space="preserve">
+    <value>脳血管障害（脳卒中など）</value>
+  </data>
+  <data name="inquiryAnswerDisease3" xml:space="preserve">
+    <value>肝障害</value>
+  </data>
+  <data name="inquiryAnswerDisease4" xml:space="preserve">
+    <value>糖尿病</value>
+  </data>
+  <data name="inquiryAnswerDisease5" xml:space="preserve">
+    <value>甲状腺機能異常</value>
+  </data>
+  <data name="inquiryAnswerDisease6" xml:space="preserve">
+    <value>アレルギー疾患</value>
+  </data>
+  <data name="inquiryAnswerDisease7" xml:space="preserve">
+    <value>うつなどの精神病性疾患</value>
+  </data>
+  <data name="inquiryAnswerDisease8" xml:space="preserve">
+    <value>睡眠障害</value>
+  </data>
+  <data name="inquiryAnswerDisease9" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="inquiryAnswerDiseaseNo" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="inquiryAnswerDiseaseYes" xml:space="preserve">
+    <value>あり</value>
+  </data>
+  <data name="inquiryAnswerNo" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="inquiryAnswerPeriod1" xml:space="preserve">
+    <value>生理中</value>
+  </data>
+  <data name="inquiryAnswerPeriod2" xml:space="preserve">
+    <value>生理後 ２週間以内</value>
+  </data>
+  <data name="inquiryAnswerPeriod3" xml:space="preserve">
+    <value>生理後 ２～４週間</value>
+  </data>
+  <data name="inquiryAnswerPeriod4" xml:space="preserve">
+    <value>ない・不定期</value>
+  </data>
+  <data name="inquiryAnswerPeriod5" xml:space="preserve">
+    <value>妊娠中</value>
+  </data>
+  <data name="inquiryAnswerSelect0" xml:space="preserve">
+    <value>倦怠感がなく通常の社会生活ができ、制限を受けることなく行動ができる。</value>
+  </data>
+  <data name="inquiryAnswerSelect1" xml:space="preserve">
+    <value>通常の社会生活ができ、労働も可能であるが、疲労感を感ずるときがしばしばある。</value>
+  </data>
+  <data name="inquiryAnswerSelect2" xml:space="preserve">
+    <value>通常の社会生活ができ、労働も可能であるが、全身倦怠感のため、しばし休息が必要である。</value>
+  </data>
+  <data name="inquiryAnswerSelect3" xml:space="preserve">
+    <value>全身倦怠感のため、月に数日は社会生活や労働ができず、自宅にて休息が必要である。</value>
+  </data>
+  <data name="inquiryAnswerSelect4" xml:space="preserve">
+    <value>全身倦怠感のため、週に数日は社会生活や労働ができず、自宅にて休息が必要である。</value>
+  </data>
+  <data name="inquiryAnswerYes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="inquiryPostfix41" xml:space="preserve">
+    <value>日間</value>
+  </data>
+  <data name="inquiryPostfix42" xml:space="preserve">
+    <value>日間</value>
+  </data>
+  <data name="inquiryPostfix43" xml:space="preserve">
+    <value>時間/日</value>
+  </data>
+  <data name="inquiryPostfix44" xml:space="preserve">
+    <value>時間/日</value>
+  </data>
+  <data name="inquiryPrefix41" xml:space="preserve">
+    <value>平日22日のうち</value>
+  </data>
+  <data name="inquiryPrefix42" xml:space="preserve">
+    <value>土・日曜日8日のうち</value>
+  </data>
+  <data name="inquiryPrefix43" xml:space="preserve">
+    <value />
+  </data>
+  <data name="inquiryPrefix44" xml:space="preserve">
+    <value />
+  </data>
+  <data name="inquiryPrompt1" xml:space="preserve">
+    <value>この問診票は、現在の疲労を把握するためのものです。この１週間の症状や気付いた点をもとに以下の質問にお答えください。</value>
+  </data>
+  <data name="inquiryPrompt2" xml:space="preserve">
+    <value>この問診票は、現在の疲労を把握するためのものです。以下の質問にお答えください。</value>
+  </data>
+  <data name="inquiryQuestion01" xml:space="preserve">
+    <value>不安で落ち着かない気分になる</value>
+  </data>
+  <data name="inquiryQuestion02" xml:space="preserve">
+    <value>居眠りが多い</value>
+  </data>
+  <data name="inquiryQuestion03" xml:space="preserve">
+    <value>微熱がある</value>
+  </data>
+  <data name="inquiryQuestion04" xml:space="preserve">
+    <value>よく眠れない</value>
+  </data>
+  <data name="inquiryQuestion05" xml:space="preserve">
+    <value>軽度の作業や運動でもすごく疲れる</value>
+  </data>
+  <data name="inquiryQuestion06" xml:space="preserve">
+    <value>ちょっとした事が思い出せない</value>
+  </data>
+  <data name="inquiryQuestion07" xml:space="preserve">
+    <value>憂鬱な気分になる</value>
+  </data>
+  <data name="inquiryQuestion08" xml:space="preserve">
+    <value>筋肉痛がある</value>
+  </data>
+  <data name="inquiryQuestion09" xml:space="preserve">
+    <value>リンパ節が腫れている</value>
+  </data>
+  <data name="inquiryQuestion10" xml:space="preserve">
+    <value>いらいらしたり、怒りっぽくなっている</value>
+  </data>
+  <data name="inquiryQuestion11" xml:space="preserve">
+    <value>胃腸の調子が悪い</value>
+  </data>
+  <data name="inquiryQuestion12" xml:space="preserve">
+    <value>夜遅くまで仕事や用事がある</value>
+  </data>
+  <data name="inquiryQuestion13" xml:space="preserve">
+    <value>ぼーっとする事がある</value>
+  </data>
+  <data name="inquiryQuestion14" xml:space="preserve">
+    <value>うっかりミスが多い</value>
+  </data>
+  <data name="inquiryQuestion15" xml:space="preserve">
+    <value>仕事量が多くて大変である</value>
+  </data>
+  <data name="inquiryQuestion16" xml:space="preserve">
+    <value>疲れた感じ、だるい感じがある</value>
+  </data>
+  <data name="inquiryQuestion17" xml:space="preserve">
+    <value>一晩寝ても疲れが取れない</value>
+  </data>
+  <data name="inquiryQuestion18" xml:space="preserve">
+    <value>のどの痛みがある</value>
+  </data>
+  <data name="inquiryQuestion19" xml:space="preserve">
+    <value>どうしても寝過ぎてしまう</value>
+  </data>
+  <data name="inquiryQuestion20" xml:space="preserve">
+    <value>家に帰っても仕事の事が頭から離れない</value>
+  </data>
+  <data name="inquiryQuestion21" xml:space="preserve">
+    <value>関節が痛む</value>
+  </data>
+  <data name="inquiryQuestion22" xml:space="preserve">
+    <value>このごろ体に力が入らない</value>
+  </data>
+  <data name="inquiryQuestion23" xml:space="preserve">
+    <value>なかなか寝付けない</value>
+  </data>
+  <data name="inquiryQuestion24" xml:space="preserve">
+    <value>自分の体調に不安がある</value>
+  </data>
+  <data name="inquiryQuestion25" xml:space="preserve">
+    <value>立ちくらみがある</value>
+  </data>
+  <data name="inquiryQuestion26" xml:space="preserve">
+    <value>頭痛・頭痛感がある</value>
+  </data>
+  <data name="inquiryQuestion27" xml:space="preserve">
+    <value>肌がかゆい</value>
+  </data>
+  <data name="inquiryQuestion28" xml:space="preserve">
+    <value>思考力が低下している</value>
+  </data>
+  <data name="inquiryQuestion29" xml:space="preserve">
+    <value>夜間たびたび目が覚める</value>
+  </data>
+  <data name="inquiryQuestion30" xml:space="preserve">
+    <value>働く意欲が起きない</value>
+  </data>
+  <data name="inquiryQuestion31" xml:space="preserve">
+    <value>湿疹やじん麻疹がある</value>
+  </data>
+  <data name="inquiryQuestion32" xml:space="preserve">
+    <value>集中力が低下している</value>
+  </data>
+  <data name="inquiryQuestion33" xml:space="preserve">
+    <value>おなかが痛くなる</value>
+  </data>
+  <data name="inquiryQuestion34" xml:space="preserve">
+    <value>まぶしくて目がくらむことがある</value>
+  </data>
+  <data name="inquiryQuestion35" xml:space="preserve">
+    <value>手足が冷える</value>
+  </data>
+  <data name="inquiryQuestion36" xml:space="preserve">
+    <value>十分な睡眠時間が取れていても眠くなる</value>
+  </data>
+  <data name="inquiryQuestion37" xml:space="preserve">
+    <value>顎関節に違和感があったり、顎を動かすと顎関節で音がする</value>
+  </data>
+  <data name="inquiryQuestion38" xml:space="preserve">
+    <value>朝方、手足がこわばる</value>
+  </data>
+  <data name="inquiryQuestion39" xml:space="preserve">
+    <value>軽い病気やストレスから回復するのが人より早いですか？</value>
+  </data>
+  <data name="inquiryQuestion40" xml:space="preserve">
+    <value>女性の方は、生理についてお答えください</value>
+  </data>
+  <data name="inquiryQuestion41" xml:space="preserve">
+    <value>この１ヶ月のうち、出勤日や登校日、もしくは平日の家事が疲労感のため行えず 一日中自宅で休養していた日は、何日ありますか？</value>
+  </data>
+  <data name="inquiryQuestion42" xml:space="preserve">
+    <value>この１ヶ月のうち、休日予定していた行事が疲労感のため行えず 一日中自宅で休養していた日は、何日ありますか？</value>
+  </data>
+  <data name="inquiryQuestion43" xml:space="preserve">
+    <value>普段の睡眠は何時間程度ですか？</value>
+  </data>
+  <data name="inquiryQuestion44" xml:space="preserve">
+    <value>今日の睡眠は何時間でしたか？</value>
+  </data>
+  <data name="inquiryQuestion45" xml:space="preserve">
+    <value>現在のあなたの状態を下記から選んでください</value>
+  </data>
+  <data name="inquiryQuestion46" xml:space="preserve">
+    <value>次の病気にかかったことがありますか？あればチェックしてください（その他の場合には病名を記入してください）</value>
+  </data>
+  <data name="inquiryQuestion47" xml:space="preserve">
+    <value>現在治療中の病気はありますか？（ありの場合には病名を記入してください）</value>
+  </data>
+  <data name="inquiryQuestion48" xml:space="preserve">
+    <value>現在服用中の薬はありますか？それは何の薬ですか？</value>
+  </data>
+  <data name="labelAge" xml:space="preserve">
+    <value>{0}歳</value>
+  </data>
+  <data name="labelAgeCCVTP" xml:space="preserve">
+    <value>機能年齢</value>
+  </data>
+  <data name="labelAverageHR" xml:space="preserve">
+    <value>平均心拍数</value>
+  </data>
+  <data name="labelBirthday" xml:space="preserve">
+    <value>生年月日</value>
+  </data>
+  <data name="labelCCVTP" xml:space="preserve">
+    <value>ccvTP</value>
+  </data>
+  <data name="labelCommunity" xml:space="preserve">
+    <value>グループ</value>
+  </data>
+  <data name="labelCommunityName" xml:space="preserve">
+    <value>グループ名</value>
+  </data>
+  <data name="labelDataInquiry" xml:space="preserve">
+    <value>問診</value>
+  </data>
+  <data name="labelDataMonitor" xml:space="preserve">
+    <value>自律神経測定</value>
+  </data>
+  <data name="labelDataPeaks" xml:space="preserve">
+    <value>ピーク間データ</value>
+  </data>
+  <data name="labelDataType" xml:space="preserve">
+    <value>種別</value>
+  </data>
+  <data name="labelDataWaves" xml:space="preserve">
+    <value>波形データ</value>
+  </data>
+  <data name="labelDay" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="labelDebiationCCVTP" xml:space="preserve">
+    <value>偏差値</value>
+  </data>
+  <data name="labelFemale" xml:space="preserve">
+    <value>女性</value>
+  </data>
+  <data name="labelFemaleName" xml:space="preserve">
+    <value>{0}さん</value>
+  </data>
+  <data name="labelGraphX" xml:space="preserve">
+    <value>自律神経のバランス（LF/HF）</value>
+  </data>
+  <data name="labelGraphY" xml:space="preserve">
+    <value>自律神経機能の偏差値</value>
+  </data>
+  <data name="labelHeartRate" xml:space="preserve">
+    <value>心拍数</value>
+  </data>
+  <data name="labelHF" xml:space="preserve">
+    <value>HF</value>
+  </data>
+  <data name="labelInquiryResult01" xml:space="preserve">
+    <value>総合疲労要素</value>
+  </data>
+  <data name="labelInquiryResult02" xml:space="preserve">
+    <value>精神疲労要素</value>
+  </data>
+  <data name="labelInquiryResult03" xml:space="preserve">
+    <value>身体疲労要素</value>
+  </data>
+  <data name="labelInquiryResult11" xml:space="preserve">
+    <value>1.前頭葉機能障害要素</value>
+  </data>
+  <data name="labelInquiryResult12" xml:space="preserve">
+    <value>2.不安・抑うつ要素</value>
+  </data>
+  <data name="labelInquiryResult13" xml:space="preserve">
+    <value>3.自律神経失調要素</value>
+  </data>
+  <data name="labelInquiryResult14" xml:space="preserve">
+    <value>4.膠原病様要素</value>
+  </data>
+  <data name="labelInquiryResult15" xml:space="preserve">
+    <value>5.感染症様要素</value>
+  </data>
+  <data name="labelInquiryResult16" xml:space="preserve">
+    <value>6.不眠要素</value>
+  </data>
+  <data name="labelInquiryResult17" xml:space="preserve">
+    <value>7.過眠要素</value>
+  </data>
+  <data name="labelInquirySheet" xml:space="preserve">
+    <value>疲労・ストレス測定（問診）結果</value>
+  </data>
+  <data name="labelLength" xml:space="preserve">
+    <value>測定時間</value>
+  </data>
+  <data name="labelLF" xml:space="preserve">
+    <value>LF</value>
+  </data>
+  <data name="labelLH" xml:space="preserve">
+    <value>LF/HF</value>
+  </data>
+  <data name="labelMale" xml:space="preserve">
+    <value>男性</value>
+  </data>
+  <data name="labelMaleName" xml:space="preserve">
+    <value>{0}さん</value>
+  </data>
+  <data name="labelMaximumHR" xml:space="preserve">
+    <value>最大心拍数</value>
+  </data>
+  <data name="labelMeasuredAt" xml:space="preserve">
+    <value>測定日時</value>
+  </data>
+  <data name="labelMeasuredOn" xml:space="preserve">
+    <value>測定日</value>
+  </data>
+  <data name="labelMinimumHR" xml:space="preserve">
+    <value>最小心拍数</value>
+  </data>
+  <data name="labelMonitorHeartRate" xml:space="preserve">
+    <value>心拍数 {0}</value>
+  </data>
+  <data name="labelMonitorLength" xml:space="preserve">
+    <value>測定時間{0}秒</value>
+  </data>
+  <data name="labelMonitorRemaining" xml:space="preserve">
+    <value>あと{0}秒</value>
+  </data>
+  <data name="labelMonitorSheet" xml:space="preserve">
+    <value>疲労・ストレス測定（自律神経）結果</value>
+  </data>
+  <data name="labelMonth" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="labelNoPassword" xml:space="preserve">
+    <value>パスワードは不要です。</value>
+  </data>
+  <data name="labelOverview" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="labelOverviewAge" xml:space="preserve">
+    <value>自律神経機能が何歳相当か</value>
+  </data>
+  <data name="labelOverviewAverageHR" xml:space="preserve">
+    <value>測定時間中の平均心拍数</value>
+  </data>
+  <data name="labelOverviewCCVTP" xml:space="preserve">
+    <value>TPを心拍数で補正した値</value>
+  </data>
+  <data name="labelOverviewDebiation" xml:space="preserve">
+    <value>ccvTPを年齢で偏差値化した値</value>
+  </data>
+  <data name="labelOverviewHF" xml:space="preserve">
+    <value>副交感神経を反映している指標</value>
+  </data>
+  <data name="labelOverviewLF" xml:space="preserve">
+    <value>交感神経を反映している指標</value>
+  </data>
+  <data name="labelOverviewLH" xml:space="preserve">
+    <value>交感神経と副交感神経のバランス</value>
+  </data>
+  <data name="labelOverviewMinimumHR" xml:space="preserve">
+    <value>測定時間中の最小心拍数</value>
+  </data>
+  <data name="labelOverviewTP" xml:space="preserve">
+    <value>自律神経機能全体の働き</value>
+  </data>
+  <data name="labelOveviewMaximumHR" xml:space="preserve">
+    <value>測定時間中の最大心拍数</value>
+  </data>
+  <data name="labelPassword" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="labelPort" xml:space="preserve">
+    <value>通信ポート</value>
+  </data>
+  <data name="labelResultBad" xml:space="preserve">
+    <value>要注意</value>
+  </data>
+  <data name="labelResultGood" xml:space="preserve">
+    <value>良好</value>
+  </data>
+  <data name="labelResultLeft" xml:space="preserve">
+    <value>判定</value>
+  </data>
+  <data name="labelResultWarning" xml:space="preserve">
+    <value>注意</value>
+  </data>
+  <data name="labelSecond" xml:space="preserve">
+    <value>{0}秒</value>
+  </data>
+  <data name="labelSectionChart" xml:space="preserve">
+    <value>２.疲労度７因子チャート</value>
+  </data>
+  <data name="labelSectionCheck" xml:space="preserve">
+    <value>１.疲労度チェック</value>
+  </data>
+  <data name="labelSectionComment" xml:space="preserve">
+    <value>２.自律神経評価</value>
+  </data>
+  <data name="labelSectionFactor" xml:space="preserve">
+    <value>３.因子毎の結果</value>
+  </data>
+  <data name="labelSectionHistory" xml:space="preserve">
+    <value>３.測定履歴</value>
+  </data>
+  <data name="labelSectionResult" xml:space="preserve">
+    <value>１.測定結果</value>
+  </data>
+  <data name="labelSex" xml:space="preserve">
+    <value>性別</value>
+  </data>
+  <data name="labelStandard" xml:space="preserve">
+    <value>基準値</value>
+  </data>
+  <data name="labelStandardPower" xml:space="preserve">
+    <value>加齢と共に低下します</value>
+  </data>
+  <data name="labelTableComment" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="labelTableOverview" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="labelTableReason" xml:space="preserve">
+    <value>測定基準</value>
+  </data>
+  <data name="labelTableResult" xml:space="preserve">
+    <value>判定</value>
+  </data>
+  <data name="labelTableScore" xml:space="preserve">
+    <value>結果</value>
+  </data>
+  <data name="labelTableStandard" xml:space="preserve">
+    <value>基準値</value>
+  </data>
+  <data name="labelTP" xml:space="preserve">
+    <value>TP</value>
+  </data>
+  <data name="labelUser" xml:space="preserve">
+    <value>ユーザー</value>
+  </data>
+  <data name="labelUserName" xml:space="preserve">
+    <value>ユーザー名</value>
+  </data>
+  <data name="labelYear" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="labelYourResult" xml:space="preserve">
+    <value>あなたの結果</value>
+  </data>
+  <data name="menuInquiry" xml:space="preserve">
+    <value>問診</value>
+  </data>
+  <data name="menuMonitor" xml:space="preserve">
+    <value>自律神経測定</value>
+  </data>
+  <data name="promptCommunityData" xml:space="preserve">
+    <value>出力対象データの期間と種別を指定してください。期間の指定は必須ではありません。</value>
+  </data>
+  <data name="promptCommunityEntrance" xml:space="preserve">
+    <value>ユーザーを選択してください。</value>
+  </data>
+  <data name="promptCommunityModification" xml:space="preserve">
+    <value>グループ情報を変更します。</value>
+  </data>
+  <data name="promptCommunityPassword" xml:space="preserve">
+    <value>グループ"{0}"のパスワードを入力してください。</value>
+  </data>
+  <data name="promptCommunityRegistration" xml:space="preserve">
+    <value>新規グループを登録します。グループ情報を設定してください。</value>
+  </data>
+  <data name="promptConfiguration" xml:space="preserve">
+    <value>測定器の電源をONにし、測定条件を設定してください。</value>
+  </data>
+  <data name="promptConfirmDeletion" xml:space="preserve">
+    <value>グループ"{0}"を削除します。よろしいですか？</value>
+  </data>
+  <data name="promptEntrance" xml:space="preserve">
+    <value>ユーザーまたはグループを選択してください。</value>
+  </data>
+  <data name="promptFolderDialog" xml:space="preserve">
+    <value>データの保存先フォルダを選択してください。</value>
+  </data>
+  <data name="promptMonitorAnalyzing" xml:space="preserve">
+    <value>解析中です。しばらくお待ちください。</value>
+  </data>
+  <data name="promptMonitorCancellation" xml:space="preserve">
+    <value>測定を中止します。測定器の電源をOFFにしてください。</value>
+  </data>
+  <data name="promptMonitorCompletion" xml:space="preserve">
+    <value>測定終了です。測定器の電源をOFFにしてください。</value>
+  </data>
+  <data name="promptMonitorCountdown" xml:space="preserve">
+    <value>まもなく測定を開始します。目を閉じて安静にしてください。</value>
+  </data>
+  <data name="promptMonitorError" xml:space="preserve">
+    <value>心拍、脈波が不安定です。解析結果の信頼性が低下します。再度測定するには「測定中止」ボタンをクリックしてください。</value>
+  </data>
+  <data name="promptMonitorPreparing" xml:space="preserve">
+    <value>測定状態を確認しています。しばらくお待ちください。</value>
+  </data>
+  <data name="promptMonitorWarning" xml:space="preserve">
+    <value>心拍、脈波が不安定です。ご注意ください。</value>
+  </data>
+  <data name="promptUserData" xml:space="preserve">
+    <value>出力するデータの種別を選択してください。</value>
+  </data>
+  <data name="promptUserDeletion" xml:space="preserve">
+    <value>ユーザー"{0}"を削除します。よろしいですか？</value>
+  </data>
+  <data name="promptUserModification" xml:space="preserve">
+    <value>ユーザー情報を変更します。</value>
+  </data>
+  <data name="promptUserPassword" xml:space="preserve">
+    <value>ユーザー"{0}"のパスワードを入力してください。</value>
+  </data>
+  <data name="promptUserRegistration" xml:space="preserve">
+    <value>新規ユーザーを登録します。ユーザー情報を設定してください。</value>
+  </data>
+  <data name="textAgeCCVTP" xml:space="preserve">
+    <value>年齢</value>
+  </data>
+  <data name="textAverageHR" xml:space="preserve">
+    <value>測定時間中の平均心拍数</value>
+  </data>
+  <data name="textCCVTP" xml:space="preserve">
+    <value>TPを測定時間中の心拍数で補正した値</value>
+  </data>
+  <data name="textDebiationCCVTP" xml:space="preserve">
+    <value>偏差値</value>
+  </data>
+  <data name="textHF" xml:space="preserve">
+    <value>主に副交感神経を反映している指標</value>
+  </data>
+  <data name="textLF" xml:space="preserve">
+    <value>主に交感神経を反映している指標</value>
+  </data>
+  <data name="textLH" xml:space="preserve">
+    <value>交感神経と副交感神経のバランスを示す指標</value>
+  </data>
+  <data name="textMaximumHR" xml:space="preserve">
+    <value>測定時間中の最大心拍数</value>
+  </data>
+  <data name="textMinimumHR" xml:space="preserve">
+    <value>測定時間中の最小心拍数</value>
+  </data>
+  <data name="textTP" xml:space="preserve">
+    <value>自律神経機能全体の働きを示す指標</value>
+  </data>
+  <data name="titleApplication" xml:space="preserve">
+    <value>疲労・ストレス測定システム</value>
+  </data>
+  <data name="titleAuthenticationError" xml:space="preserve">
+    <value>認証エラー</value>
+  </data>
+  <data name="titleCancel" xml:space="preserve">
+    <value>測定キャンセル</value>
+  </data>
+  <data name="titleCommunity" xml:space="preserve">
+    <value>グループ</value>
+  </data>
+  <data name="titleConfiguration" xml:space="preserve">
+    <value>測定条件</value>
+  </data>
+  <data name="titleConfirm" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="titleEntrance" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="titleError" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="titleExport" xml:space="preserve">
+    <value>データ出力</value>
+  </data>
+  <data name="titleFinish" xml:space="preserve">
+    <value>測定終了</value>
+  </data>
+  <data name="titleFolder" xml:space="preserve">
+    <value>保存先フォルダの選択</value>
+  </data>
+  <data name="titleMonitor" xml:space="preserve">
+    <value>疲労・ストレス測定</value>
+  </data>
+  <data name="titlePassword" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="titleResult" xml:space="preserve">
+    <value>測定結果</value>
+  </data>
+  <data name="titleUser" xml:space="preserve">
+    <value>ユーザー</value>
+  </data>
+</root>

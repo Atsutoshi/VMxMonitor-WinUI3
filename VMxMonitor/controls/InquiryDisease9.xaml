@@ -1,0 +1,31 @@
+<UserControl x:Class="VMxMonitor.controls.InquiryDisease9"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="using:VMxMonitor.controls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="800" Loaded="onLoad" Background="White">
+	<Border BorderBrush="DarkSlateGray" BorderThickness="0,0,0,1">
+		<StackPanel>
+			<TextBlock x:Name="wQuestionText" FontSize="14" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8"/>
+			<Border Background="LightGray" BorderBrush="Black" BorderThickness="0,1,0,0">
+				<StackPanel Orientation="Vertical" Margin="8">
+					<ItemsControl x:Name="wCheckPanel">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="3" />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<CheckBox Content="{Binding Content}" Tag="{Binding Tag}" Checked="onCheck" Unchecked="onCheck" Margin="8" FontSize="14"/>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+					<TextBox x:Name="wAnswerText" FontSize="14" Padding="2" Margin="8,0,8,8" TextChanged="onChange"/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+	</Border>
+</UserControl>

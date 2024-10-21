@@ -1,0 +1,37 @@
+﻿<ContentDialog
+    x:Class="VMxMonitor.dialogs.DataExportDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor.dialogs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    PrimaryButtonClick="OnPrimaryButtonClick"
+    SecondaryButtonClick="OnSecondaryButtonClick"
+    Loaded="OnLoad">
+
+	<Grid Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<TextBlock x:Name="wPromptText" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="18" Grid.ColumnSpan="2" Margin="0,0,0,8" />
+		<TextBlock x:Name="wLabelMeasuredOn" FontSize="18" VerticalAlignment="Center" Margin="0,8" Grid.Row="1" />
+		<StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,8" VerticalAlignment="Center" Grid.Row="1">
+			<CalendarDatePicker x:Name="wFromDate" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" />
+			<TextBlock FontSize="18" Text="～" Margin="8,0" VerticalAlignment="Center" />
+			<CalendarDatePicker x:Name="wToDate" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" />
+		</StackPanel>
+		<TextBlock x:Name="wLabelDataType" FontSize="18" VerticalAlignment="Center" Margin="0,8" Grid.Row="2" />
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,8" Grid.Row="2" Grid.Column="1">
+			<RadioButton x:Name="wMonitorRadio" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" GroupName="DataType" />
+			<RadioButton x:Name="wInquiryRadio" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" VerticalContentAlignment="Center" Margin="8,0,0,0" GroupName="DataType" />
+		</StackPanel>
+	</Grid>
+</ContentDialog>

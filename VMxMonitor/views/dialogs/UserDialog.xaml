@@ -1,0 +1,48 @@
+<ContentDialog
+    x:Class="VMxMonitor.dialogs.UserDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor.dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="{Binding titleUser, Source={StaticResource resx}}"
+    PrimaryButtonText="OK"
+    SecondaryButtonText="Cancel"
+    Loaded="onLoad">
+
+	<Grid Margin="20" VerticalAlignment="Center">
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<TextBlock x:Name="wPromptText" Margin="0,0,0,8" TextWrapping="Wrap" Text="{Binding promptUserRegistration, Source={StaticResource resx}}" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="18" HorizontalAlignment="Left"/>
+		<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding labelUserName, Source={StaticResource resx}}" FontSize="18" Margin="0,8" Grid.Row="1" />
+		<TextBox x:Name="wNameText" FontSize="18" VerticalAlignment="Center" Grid.Column="1" Margin="0,8" Grid.Row="1" TextChanged="onTextBox" Padding="2" />
+		<TextBlock HorizontalAlignment="Left" Margin="0,8" Text="{Binding labelPassword, Source={StaticResource resx}}" VerticalAlignment="Center" Grid.Row="2" FontSize="18"/>
+		<PasswordBox x:Name="wPasswordText" Grid.Column="1" Margin="0,8" VerticalAlignment="Center" Grid.Row="2" FontSize="18" Padding="2"/>
+		<TextBlock x:Name="wPasswordLabel" Grid.Column="1" Margin="0,8" VerticalAlignment="Center" Grid.Row="2" FontSize="18" Text="{Binding labelNoPassword, Source={StaticResource resx}}" />
+		<TextBlock HorizontalAlignment="Left" Margin="0,8" Text="{Binding labelBirthday, Source={StaticResource resx}}" VerticalAlignment="Center" Grid.Row="3" FontSize="18"/>
+		<StackPanel Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,8">
+			<ComboBox x:Name="wYearCombo" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" SelectionChanged="onSelectDate" />
+			<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" Text="{Binding labelYear, Source={StaticResource resx}}" />
+			<ComboBox x:Name="wMonthCombo" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" SelectionChanged="onSelectDate" FontSize="18" />
+			<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" Text="{Binding labelMonth, Source={StaticResource resx}}" />
+			<ComboBox x:Name="wDayCombo" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="10,0,0,0" />
+			<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" Text="{Binding labelDay, Source={StaticResource resx}}" />
+		</StackPanel>
+		<TextBlock HorizontalAlignment="Left" Margin="0,8" Text="{Binding labelSex, Source={StaticResource resx}}" VerticalAlignment="Center" Grid.Row="4" FontSize="18"/>
+		<StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,8">
+			<RadioButton x:Name="wSexMale" Content="{Binding labelMale, Source={StaticResource resx}}" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Sex" FontSize="18" VerticalContentAlignment="Center"/>
+			<RadioButton x:Name="wSexFemale" Content="{Binding labelFemale, Source={StaticResource resx}}" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Sex" Margin="10,0,0,0" FontSize="18" VerticalContentAlignment="Center"/>
+		</StackPanel>
+	</Grid>
+</ContentDialog>

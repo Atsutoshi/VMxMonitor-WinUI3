@@ -1,0 +1,13 @@
+﻿<ContentDialog
+    x:Class="VMxMonitor.dialogs.AlertDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor.dialogs"
+    Title="{Binding titleError, Source={StaticResource resx}}"
+    PrimaryButtonText="OK"
+    CloseButtonText="Cancel">
+
+	<StackPanel Margin="20">
+		<TextBlock x:Name="wMessageText" FontSize="18" TextWrapping="Wrap" Text="alert message" Margin="0,0,0,8" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+	</StackPanel>
+</ContentDialog>

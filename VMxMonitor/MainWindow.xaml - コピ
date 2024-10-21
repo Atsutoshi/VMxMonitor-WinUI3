@@ -1,0 +1,475 @@
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Animation;
+using Microsoft.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Windowing;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using VMxMonitor.dialogs;
+using VMxMonitor.models;
+using VMxMonitor.pages;
+using Microsoft.UI;
+using System.Diagnostics;
+using VM_app_221_WAS.services;
+using VMxMonitor.views.pages;
+using Windows.Graphics;
+using Microsoft.UI.Xaml.Media;
+
+namespace VMxMonitor
+{
+	public sealed partial class MainWindow : Window
+	{
+		private const int TRANSITION_DURATION = 350;
+		private DataModel mDataModel;
+		private CommunityModel mCommunity;
+		private UserModel mUser;
+		private int mHistory;
+		private AppWindow appWindow;
+
+
+
+		public MainWindow()
+		{
+			this.InitializeComponent();
+			InitializeAppWindow();
+			mDataModel = DataModel.create();
+			mCommunity = null;
+			mUser = null;
+			mHistory = 0;
+		}
+
+		private void InitializeAppWindow()
+		{
+			var hwnd = WinRT.Interop.WindowNative.GetWindowHandle( this );
+			var windowId = Win32Interop.GetWindowIdFromWindow( hwnd );
+			appWindow = AppWindow.GetFromWindowId( windowId );
+
+			if( appWindow != null )
+			{
+				var presenter = appWindow.Presenter as OverlappedPresenter;
+				if( presenter != null )
+				{
+					// OverlappedPresenter のプロパティを設定します。
+					// 必要に応じて他のプロパティも設定します。
+					presenter.IsMaximizable = true;
+					presenter.IsMinimizable = true;
+					presenter.IsResizable = true;
+				}
+			}
+
+			appWindow.Resize( new SizeInt32( 800, 600 ) );
+		}
+
+		private void OnWindowActivated( object sender, WindowActivatedEventArgs e )
+		{
+			wVersionText.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+			wProfileBoard.Visibility = Visibility.Collapsed;
+
+			if( !IsAuthorized() )
+			{
+				OnQuitApplication( null, null );
+				return;
+			}
+
+			int tab = EntrancePage.COMMUNITY_TAB;
+			foreach( string arg in Environment.GetCommandLineArgs() )
+			{
+				if( arg == "--user" )
+				{
+					tab = EntrancePage.USER_TAB;
+				}
+			}
+
+			var page = new EntrancePage( mDataModel, tab )
+			{
+				Width = wContainer.ActualWidth,
+				Height = wContainer.ActualHeight,
+				Margin = new Thickness( 0 )
+			};
+			page.SelectUser += OnSelectUser;
+			page.SelectCommunity += OnSelectCommunity;
+			page.Quit += OnQuitApplication;
+			wContainer.Children.Add( page );
+
+			InvalidateLayout();
+		}
+
+		public static void InvalidateLayout()
+		{
+			if( Window.Current.Content is FrameworkElement rootElement )
+			{
+				rootElement.InvalidateArrange();
+				rootElement.InvalidateMeasure();
+			}
+		}
+
+		private void OnResizeWindow( object sender, WindowSizeChangedEventArgs e )
+		{
+			foreach( UIElement element in wContainer.Children )
+			{
+				if( element is UserControl page )
+				{
+					page.Width = wContainer.ActualWidth;
+					page.Height = wContainer.ActualHeight;
+				}
+			}
+		}
+
+		private void OnSelectCommunity( object sender, CommunityEventArgs e )
+		{
+			mCommunity = e.community;
+
+			var page = new CommunityPage( mDataModel, e.community );
+			page.SelectUser += OnSelectUser;
+			page.Cancel += OnCancelCommunity;
+			Forward( page );
+		}
+
+		private void OnSelectUser( object sender, UserEventArgs e )
+		{
+			// get user.
+			mUser = e.User;
+			if( mUser.CommunityId == 0 )
+			{
+				mCommunity = null;
+			}
+
+			// Load user icon
+			wUserIcon.Source = new BitmapImage( new Uri( mUser.Icon.ToString(), UriKind.Absolute ) );
+
+			wUserName.Text = mUser.Name;
+			wUserAge.Text = $"Age: {mUser.Age}";
+			if( mUser.Sex == UserModel.SEX_MALE )
+			{
+				wUserSex.Text = "Male";
+			}
+			else if( mUser.Sex == UserModel.SEX_FEMALE )
+			{
+				wUserSex.Text = "Female";
+			}
+			else
+			{
+				wUserSex.Text = "";
+			}
+			if( mCommunity != null )
+			{
+				wCommunityName.Text = mCommunity.Name;
+			}
+			else
+			{
+				wCommunityName.Text = "";
+			}
+
+			// show profile.
+			wProfileBoard.Visibility = Visibility.Visible;
+
+			// open menu.
+			MenuPage menu = new MenuPage();
+			menu.StartMonitor += OnStartMonitor;
+			menu.ListMonitor += OnListMonitor;
+			menu.StartInquiry += OnOpenInquiry;
+			menu.ListInquiry += OnListInquiry;
+			menu.Finish += OnLogout;
+			Forward( menu );
+		}
+
+
+
+
+		private void OnStartMonitor( object sender, RoutedEventArgs e )
+		{
+			if( !IsAuthorized() ) return;
+
+			var monitor = new MonitorPage( mDataModel, mUser );
+			monitor.Finish += OnOpenMonitorResult;
+			monitor.Cancel += OnReturn;
+			Forward( monitor );
+			mHistory = 0;
+		}
+
+		private void OnListMonitor( object sender, RoutedEventArgs e )
+		{
+			var history = new HistoryPage( mDataModel, mUser, HistoryPage.HISTORY_MONITOR );
+			history.SelectMonitor += OnOpenMonitorResult;
+			history.Cancel += OnReturn;
+			Forward( history );
+			mHistory = HistoryPage.HISTORY_MONITOR;
+		}
+
+		private void OnOpenMonitorResult( object sender, MonitorEventArgs e )
+		{
+			var page = new ResultPage( mDataModel, mCommunity, mUser, e.Monitor );
+			page.Finish += OnFinishResult;
+			Forward( page );
+			wProfileBoard.Visibility = Visibility.Collapsed;
+		}
+
+		private void OnOpenInquiry( object sender, RoutedEventArgs e )
+		{
+			if( !IsAuthorized() ) return;
+
+			var inquiry = new InquiryPage( mDataModel, mUser );
+			inquiry.Finish += OnOpenInquiryResult;
+			inquiry.Cancel += OnReturn;
+			Forward( inquiry );
+			mHistory = 0;
+		}
+
+		private void OnListInquiry( object sender, RoutedEventArgs e )
+		{
+			var history = new HistoryPage( mDataModel, mUser, HistoryPage.HISTORY_INQUIRY );
+			history.SelectInquiry += OnOpenInquiryResult;
+			history.Cancel += OnReturn;
+			Forward( history );
+			mHistory = HistoryPage.HISTORY_INQUIRY;
+		}
+
+		private void OnOpenInquiryResult( object sender, InquiryEventArgs e )
+		{
+			var page = new ResultPage( mDataModel, mCommunity, mUser, e.Inquiry );
+			page.Finish += OnFinishResult;
+			Forward( page );
+			wProfileBoard.Visibility = Visibility.Collapsed;
+		}
+
+		private void OnFinishResult( object sender, RoutedEventArgs e )
+		{
+			if( mHistory == 0 )
+			{
+				OnReturn( sender, e );
+			}
+			else
+			{
+				var history = new HistoryPage( mDataModel, mUser, mHistory );
+				history.SelectMonitor += OnOpenMonitorResult;
+				history.SelectInquiry += OnOpenInquiryResult;
+				history.Cancel += OnReturn;
+				Backward( history );
+			}
+
+			wProfileBoard.Visibility = Visibility.Visible;
+		}
+
+		private void OnReturn( object sender, RoutedEventArgs e )
+		{
+			var menu = new MenuPage();
+			menu.StartMonitor += OnStartMonitor;
+			menu.ListMonitor += OnListMonitor;
+			menu.StartInquiry += OnOpenInquiry;
+			menu.ListInquiry += OnListInquiry;
+			menu.Finish += OnLogout;
+			Backward( menu );
+		}
+
+		private void OnLogout( object sender, RoutedEventArgs e )
+		{
+			if( mCommunity != null )
+			{
+				var page = new CommunityPage( mDataModel, mCommunity );
+				page.SelectUser += OnSelectUser;
+				page.Cancel += OnCancelCommunity;
+				Backward( page );
+			}
+			else
+			{
+				var page = new EntrancePage( mDataModel, EntrancePage.USER_TAB );
+				page.SelectUser += OnSelectUser;
+				page.SelectCommunity += OnSelectCommunity;
+				page.Quit += OnQuitApplication;
+				Backward( page );
+				mCommunity = null;
+				mUser = null;
+			}
+			wProfileBoard.Visibility = Visibility.Collapsed;
+		}
+
+		private void OnCancelCommunity( object sender, RoutedEventArgs e )
+		{
+			var page = new EntrancePage( mDataModel, EntrancePage.COMMUNITY_TAB );
+			page.SelectUser += OnSelectUser;
+			page.SelectCommunity += OnSelectCommunity;
+			page.Quit += OnQuitApplication;
+			Backward( page );
+			mUser = null;
+		}
+
+		private void OnQuitApplication( object sender, RoutedEventArgs e )
+		{
+			Close();
+		}
+
+		private bool IsAuthorized()
+		{
+		// EB
+			//while( true )
+			//{
+			//	var args = Environment.GetCommandLineArgs();
+			//	var app = System.IO.Path.GetDirectoryName( args[0] );
+			//	var exe = IntPtr.Size == 8 ? System.IO.Path.Combine( app, "x64", "Memfmcc.exe" ) : System.IO.Path.Combine( app, "x86", "Memfmcc.exe" );
+
+			//	var proc = new Process
+			//	{
+			//		StartInfo = new ProcessStartInfo
+			//		{
+			//			FileName = exe,
+			//			CreateNoWindow = true,
+			//			UseShellExecute = false
+			//		}
+			//	};
+			//	proc.Start();
+			//	proc.WaitForExit();
+
+			//	if( proc.ExitCode == 91 )
+			//	{
+			//		if( !AuthenticationDialog.ShowDialogAsync( "Authentication Error", "Application authentication failed. Please reconfirm." ).Result )
+			//		{
+			//			return false;
+			//		}
+			//	}
+			//	else
+			//	{
+			//		break;
+			//	}
+			//}
+			return true;
+		}
+
+		private void Forward( UserControl to )
+		{
+			wTransitionScreen.Visibility = Visibility.Visible;
+
+			var controls = new List<UserControl>();
+			foreach( UIElement element in wContainer.Children )
+			{
+				if( element is UserControl control )
+				{
+					controls.Add( control );
+				}
+			}
+
+			var destination = new Thickness( 0 );
+			to.Width = wContainer.ActualWidth;
+			to.Height = wContainer.ActualHeight;
+			to.Margin = new Thickness( wContainer.ActualWidth, 0, 0, 0 );
+			wContainer.Children.Add( to );
+
+			// アニメーション対象にRenderTransformを追加
+			to.RenderTransform = new TranslateTransform();
+			foreach( var control in controls )
+			{
+				control.RenderTransform = new TranslateTransform();
+			}
+
+			var storyboard = new Storyboard();
+			var duration = new TimeSpan( 0, 0, 0, 0, TRANSITION_DURATION );
+
+			foreach( var control in controls )
+			{
+				var animation = new DoubleAnimation
+				{
+					From = 0,
+					To = -wContainer.ActualWidth,
+					Duration = duration
+				};
+				Storyboard.SetTarget( animation, control );
+				Storyboard.SetTargetProperty( animation, "(UIElement.RenderTransform).(TranslateTransform.X)" );
+				storyboard.Children.Add( animation );
+			}
+
+			var forwardAnimation = new DoubleAnimation
+			{
+				From = wContainer.ActualWidth,
+				To = 0,
+				Duration = duration
+			};
+			Storyboard.SetTarget( forwardAnimation, to );
+			Storyboard.SetTargetProperty( forwardAnimation, "(UIElement.RenderTransform).(TranslateTransform.X)" );
+			storyboard.Children.Add( forwardAnimation );
+
+			storyboard.FillBehavior = FillBehavior.Stop;
+			storyboard.Completed += ( s, e ) =>
+			{
+				to.Margin = destination;
+
+				foreach( var control in controls )
+				{
+					control.Visibility = Visibility.Collapsed;
+					wContainer.Children.Remove( control );
+				}
+
+				wTransitionScreen.Visibility = Visibility.Collapsed;
+			};
+			storyboard.Begin();
+		}
+
+		private void Backward( UserControl to )
+		{
+			wTransitionScreen.Visibility = Visibility.Visible;
+
+			var controls = new List<UserControl>();
+			foreach( UIElement element in wContainer.Children )
+			{
+				if( element is UserControl control )
+				{
+					controls.Add( control );
+				}
+			}
+
+			var destination = new Thickness( 0 );
+			to.Width = wContainer.ActualWidth;
+			to.Height = wContainer.ActualHeight;
+			to.Margin = new Thickness( -wContainer.ActualWidth, 0, 0, 0 );
+			wContainer.Children.Insert( 0, to );
+
+			// アニメーション対象にRenderTransformを追加
+			to.RenderTransform = new TranslateTransform();
+			foreach( var control in controls )
+			{
+				control.RenderTransform = new TranslateTransform();
+			}
+
+			var storyboard = new Storyboard();
+			var duration = new TimeSpan( 0, 0, 0, 0, TRANSITION_DURATION );
+
+			foreach( var control in controls )
+			{
+				var animation = new DoubleAnimation
+				{
+					From = 0,
+					To = wContainer.ActualWidth,
+					Duration = duration
+				};
+				Storyboard.SetTarget( animation, control );
+				Storyboard.SetTargetProperty( animation, "(UIElement.RenderTransform).(TranslateTransform.X)" );
+				storyboard.Children.Add( animation );
+			}
+
+			var backwardAnimation = new DoubleAnimation
+			{
+				From = -wContainer.ActualWidth,
+				To = 0,
+				Duration = duration
+			};
+			Storyboard.SetTarget( backwardAnimation, to );
+			Storyboard.SetTargetProperty( backwardAnimation, "(UIElement.RenderTransform).(TranslateTransform.X)" );
+			storyboard.Children.Add( backwardAnimation );
+
+			storyboard.FillBehavior = FillBehavior.Stop;
+			storyboard.Completed += ( s, e ) =>
+			{
+				to.Margin = destination;
+
+				foreach( var control in controls )
+				{
+					control.Visibility = Visibility.Collapsed;
+					wContainer.Children.Remove( control );
+				}
+
+				wTransitionScreen.Visibility = Visibility.Collapsed;
+			};
+			storyboard.Begin();
+		}
+
+	}
+}

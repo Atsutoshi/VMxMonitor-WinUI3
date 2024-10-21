@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="VMxMonitor.views.dialogs.ConfigurationDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor.views.dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Configuration Dialog"
+    PrimaryButtonText="Start"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="onStartButton"
+    SecondaryButtonClick="onCancelButton">
+
+	<Grid Margin="20" VerticalAlignment="Center">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="100"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<TextBlock HorizontalAlignment="Left" Margin="0,0,0,8" TextWrapping="Wrap" Text="Configuration" VerticalAlignment="Top" FontSize="18" FontFamily="Meiryo UI" Grid.ColumnSpan="2"/>
+		<TextBlock FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Port" Grid.Row="1" Margin="0,8" FontFamily="Meiryo UI"/>
+		<ComboBox x:Name="wPortCombo" Grid.Column="1" HorizontalAlignment="Left" Margin="0,8" Grid.Row="1" VerticalAlignment="Center" FontSize="18" FontFamily="Meiryo UI" SelectionChanged="onPortCombo"/>
+		<TextBlock FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Length" Grid.Row="2" Margin="0,8" FontFamily="Meiryo UI"/>
+		<ComboBox x:Name="wLengthCombo" Grid.Column="1" HorizontalAlignment="Left" Margin="0,8" Grid.Row="2" VerticalAlignment="Center" FontSize="18" FontFamily="Meiryo UI" SelectionChanged="onLengthCombo"/>
+	</Grid>
+</ContentDialog>

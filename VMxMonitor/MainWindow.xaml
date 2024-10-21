@@ -1,0 +1,38 @@
+<!--<Window
+    x:Class="VMxMonitor.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VMxMonitor"
+    SizeChanged="OnResizeWindow"
+    Activated="OnWindowActivated">
+
+	<Grid x:Name="RootGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid Background="LightGreen">
+			<StackPanel Margin="20,0,0,0" Orientation="Horizontal">
+				<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="titleApplication" FontSize="30" FontFamily="Meiryo UI"/>
+				<TextBlock x:Name="wVersionText" HorizontalAlignment="Left" Margin="10,0,0,10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Bottom" FontSize="10" Foreground="#FF3A3A3A" FontFamily="Meiryo UI"/>
+			</StackPanel>
+			<Grid HorizontalAlignment="Right" Margin="0" Background="White">
+				<Image x:Name="image" Margin="10" Source="logo_ja.png" Height="40" HorizontalAlignment="Right"/>
+			</Grid>
+		</Grid>
+		<Grid x:Name="wContainer" Grid.Row="1"/>
+		<Grid x:Name="wTransitionScreen" Background="Transparent" Grid.Row="1" Visibility="Collapsed"/>
+		<StackPanel x:Name="wProfileBoard" Orientation="Horizontal" Margin="16,8,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Grid.Row="1">
+			<Image x:Name="wUserIcon" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="32" Height="32" Source="Resources/maleIcon.png"/>
+			<TextBlock x:Name="wUserName" VerticalAlignment="Center" FontSize="14" Margin="10,0,0,0" FontFamily="Meiryo UI"/>
+			<TextBlock x:Name="wUserAge" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" Margin="10,0,0,0" FontFamily="Meiryo UI"/>
+			<TextBlock x:Name="wUserSex" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" Margin="10,0,0,0" FontFamily="Meiryo UI"/>
+			<TextBlock x:Name="wCommunityName" VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Left" Margin="10,0,0,0" FontFamily="Meiryo UI"/>
+		</StackPanel>
+	</Grid>
+</Window>-->
+<Window
+    x:Class="VMxMonitor.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+</Window>
